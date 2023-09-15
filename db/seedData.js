@@ -1,5 +1,6 @@
 const { createCategory } = require("./categories");
 const client = require("./client");
+const { createEquipmentItem } = require("./equipment");
 
 async function dropTables() {
   console.log("Dropping Tables");
@@ -48,12 +49,53 @@ async function createCategories() {
   } catch (error) {}
 }
 
+async function createInitEquipment() {
+  console.log("Creating initial equipment list");
+  try {
+    const equipmentToCreate = [
+      {
+        equipType: "Amplifiers",
+        categoryId: 1,
+      },
+      {
+        equipType: "Cameras",
+        categoryId: 2,
+      },
+      {
+        equipType: "EPIC-Headend",
+        categoryId: 3,
+      },
+      {
+        equipType: "Microphones",
+        categoryId: 1,
+      },
+      {
+        equipType: "Strobes",
+        categoryId: 4,
+      },
+      {
+        equipType: "Wallplates",
+        categoryId: 4,
+      },
+      {
+        equipType: "Speakers",
+        categoryId: 1,
+      },
+    ];
+    const equipmentList = await Promise.all(
+      equipmentToCreate.map(createEquipmentItem)
+    );
+    console.log("Created equipment:", equipmentList);
+  } catch (error) {}
+}
+
 async function rebuildDB() {
   try {
     client.connect();
     await dropTables();
     await createTables();
     await createCategories();
+    await createInitEquipment();
   } catch (error) {}
 }
 
