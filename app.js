@@ -9,7 +9,7 @@ const apiRouter = require("./api");
 server.use(express.json());
 server.use(cors());
 
-server.use("/api", apitRouter);
+server.use("/api", apiRouter);
 client.connect();
 
 server.listen(PORT, () => {

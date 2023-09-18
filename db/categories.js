@@ -15,6 +15,21 @@ async function createCategory(name) {
   } catch (error) {}
 }
 
+async function getCategoryIdByName(name) {
+  try {
+    const {
+      rows: [categoryId],
+    } = await client.query(
+      `
+      SELECT id FROM categories WHERE name = $1
+    `,
+      [name]
+    );
+    return categoryId;
+  } catch (error) {}
+}
+
 module.exports = {
   createCategory,
+  getCategoryIdByName,
 };

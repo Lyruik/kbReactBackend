@@ -1,11 +1,15 @@
 const { createCategory } = require("./categories");
 const client = require("./client");
 const { createEquipmentItem } = require("./equipment");
+const { createImage } = require("./images");
+const { equipmentToCreate } = require("./largeSeedImports/equipmentImport");
+const { imagesToCreate } = require("./largeSeedImports/imageImport");
 
 async function dropTables() {
   console.log("Dropping Tables");
   await client.query(`
         DROP TABLE IF EXISTS equipment;
+        DROP TABLE IF EXISTS images;
         DROP TABLE IF EXISTS categories;
     `);
 }
@@ -17,10 +21,16 @@ async function createTables() {
                 id SERIAL PRIMARY KEY,
                 name VARCHAR(255) NOT NULL UNIQUE
             );
+            CREATE TABLE images(
+                id SERIAL PRIMARY KEY,
+                name VARCHAR(255) UNIQUE NOT NULL,
+                file TEXT NOT NULL
+            );
             CREATE TABLE equipment(
                 id SERIAL PRIMARY KEY,
                 "equipType" VARCHAR(255) NOT NULL UNIQUE,
-                category_id INTEGER REFERENCES categories(id) NOT NULL DEFAULT 5
+                "imageId" INTEGER REFERENCES images(id) NOT NULL DEFAULT 1,
+                "categoryId" INTEGER REFERENCES categories(id) NOT NULL DEFAULT 8
             );
         `);
     console.log("Successfully created tables");
@@ -36,11 +46,15 @@ async function createCategories() {
   console.log("Creating Categories");
   try {
     const categoriesToCreate = [
-      "Audio",
-      "Video",
-      "Headend",
-      "Other",
+      "Amplifiers",
+      "Cameras",
+      "EPIC-Headend",
+      "Microphones",
+      "Strobes",
+      "Wallplates",
+      "Speakers",
       "Unassigned",
+      "MS-Devices",
     ];
     const categories = await Promise.all(
       categoriesToCreate.map(createCategory)
@@ -49,39 +63,17 @@ async function createCategories() {
   } catch (error) {}
 }
 
+async function createInitImages() {
+  console.log("Created Images");
+  try {
+    const imagesList = await Promise.all(imagesToCreate.map(createImage));
+    console.log("Created images:", imagesList);
+  } catch (error) {}
+}
+
 async function createInitEquipment() {
   console.log("Creating initial equipment list");
   try {
-    const equipmentToCreate = [
-      {
-        equipType: "Amplifiers",
-        categoryId: 1,
-      },
-      {
-        equipType: "Cameras",
-        categoryId: 2,
-      },
-      {
-        equipType: "EPIC-Headend",
-        categoryId: 3,
-      },
-      {
-        equipType: "Microphones",
-        categoryId: 1,
-      },
-      {
-        equipType: "Strobes",
-        categoryId: 4,
-      },
-      {
-        equipType: "Wallplates",
-        categoryId: 4,
-      },
-      {
-        equipType: "Speakers",
-        categoryId: 1,
-      },
-    ];
     const equipmentList = await Promise.all(
       equipmentToCreate.map(createEquipmentItem)
     );
@@ -95,6 +87,7 @@ async function rebuildDB() {
     await dropTables();
     await createTables();
     await createCategories();
+    await createInitImages();
     await createInitEquipment();
   } catch (error) {}
 }
