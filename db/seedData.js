@@ -55,6 +55,9 @@ async function createCategories() {
       "Speakers",
       "Unassigned",
       "MS-Devices",
+      "70V-Amplifiers",
+      "CA-Devices",
+      "Retired-Amps",
     ];
     const categories = await Promise.all(
       categoriesToCreate.map(createCategory)

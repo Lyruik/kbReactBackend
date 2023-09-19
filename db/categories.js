@@ -1,7 +1,6 @@
 const client = require("./client");
 
 async function createCategory(name) {
-  console.log("hi");
   try {
     const {
       rows: [createdCategory],
