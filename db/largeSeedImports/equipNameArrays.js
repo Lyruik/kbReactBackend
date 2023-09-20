@@ -1,10 +1,10 @@
 const initImagesToCreate = [
   "Amplifiers",
   "Cameras",
-  "Headend",
-  "Microphone",
-  "Strobe",
-  "Wallplate",
+  "EPIC-Headend",
+  "Microphones",
+  "Strobes",
+  "Wallplates",
   "Speakers",
 ];
 const initImageFilesToCreate = [
@@ -109,7 +109,7 @@ const wallplatesFilesToPush = [
   "WPA-502.PNG",
   "WPA-702.PNG",
   "WBA-602.PNG",
-  "ITC-.PNG",
+  "ITC-PIC.PNG",
 ];
 
 const speakersToPush = [
