@@ -1,7 +1,9 @@
 const { createCategory } = require("./categories");
 const client = require("./client");
+const { createDocument } = require("./documents");
 const { createEquipmentItem } = require("./equipment");
 const { createImage } = require("./images");
+const { ms500Docs } = require("./largeSeedImports/documentsImport");
 const { equipmentToCreate } = require("./largeSeedImports/equipmentImport");
 const { imagesToCreate } = require("./largeSeedImports/imageImport");
 
@@ -9,6 +11,7 @@ async function dropTables() {
   console.log("Dropping Tables");
   await client.query(`
         DROP TABLE IF EXISTS equipment;
+        DROP TABLE IF EXISTS documents;
         DROP TABLE IF EXISTS images;
         DROP TABLE IF EXISTS categories;
     `);
@@ -26,11 +29,16 @@ async function createTables() {
                 name VARCHAR(255) UNIQUE NOT NULL,
                 file TEXT NOT NULL
             );
+            CREATE TABLE documents(
+              id SERIAL PRIMARY KEY,
+              "docName" TEXT NOT NULL
+            );
             CREATE TABLE equipment(
                 id SERIAL PRIMARY KEY,
                 "equipType" VARCHAR(255) NOT NULL UNIQUE,
                 "imageId" INTEGER REFERENCES images(id) NOT NULL DEFAULT 1,
-                "categoryId" INTEGER REFERENCES categories(id) NOT NULL DEFAULT 8
+                "categoryId" INTEGER REFERENCES categories(id) NOT NULL DEFAULT 8,
+                "relatedDocIds" INTEGER REFERENCES documents(id)
             );
         `);
     console.log("Successfully created tables");
@@ -74,6 +82,14 @@ async function createInitImages() {
   } catch (error) {}
 }
 
+async function createInitDocuments() {
+  console.log("Create initial Documents");
+  try {
+    const docList = await Promise.all(ms500Docs.map(createDocument));
+    console.log("Created documents:", docList);
+  } catch (error) {}
+}
+
 async function createInitEquipment() {
   console.log("Creating initial equipment list");
   try {
@@ -91,7 +107,9 @@ async function rebuildDB() {
     await createTables();
     await createCategories();
     await createInitImages();
+    await createInitDocuments();
     await createInitEquipment();
+    console.log("We've reached the end probably");
   } catch (error) {}
 }
 

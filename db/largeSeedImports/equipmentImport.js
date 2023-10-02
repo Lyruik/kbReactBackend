@@ -38,6 +38,21 @@ pushToEquipToCreate(wallplatesToPush, 6);
 pushToEquipToCreate(speakersToPush, 7);
 pushToEquipToCreate(retiredAmps, 12);
 
+const addDocIdsToEquipment = (device, startIdx, stopIdx) => {
+  const arr = [];
+  for (let i = startIdx; i < stopIdx; i++) {
+    arr.push(i.toString());
+  }
+  for (let key of equipmentToCreate) {
+    if (key.equipType === device) {
+      key.relatedDocIds = arr;
+      console.log(key);
+    }
+  }
+};
+
+addDocIdsToEquipment("MS-500", 1, 7);
+
 module.exports = {
   equipmentToCreate,
 };
