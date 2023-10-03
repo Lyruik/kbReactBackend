@@ -3,7 +3,10 @@ const client = require("./client");
 const { createDocument } = require("./documents");
 const { createEquipmentItem } = require("./equipment");
 const { createImage } = require("./images");
-const { ms500Docs } = require("./largeSeedImports/documentsImport");
+const {
+  ms500Docs,
+  docsToCreate,
+} = require("./largeSeedImports/documentsImport");
 const { equipmentToCreate } = require("./largeSeedImports/equipmentImport");
 const { imagesToCreate } = require("./largeSeedImports/imageImport");
 
@@ -38,7 +41,7 @@ async function createTables() {
                 "equipType" VARCHAR(255) NOT NULL UNIQUE,
                 "imageId" INTEGER REFERENCES images(id) NOT NULL DEFAULT 1,
                 "categoryId" INTEGER REFERENCES categories(id) NOT NULL DEFAULT 8,
-                "relatedDocIds" INTEGER REFERENCES documents(id)
+                "relatedDocIds" INTEGER[]
             );
         `);
     console.log("Successfully created tables");
@@ -85,7 +88,7 @@ async function createInitImages() {
 async function createInitDocuments() {
   console.log("Create initial Documents");
   try {
-    const docList = await Promise.all(ms500Docs.map(createDocument));
+    const docList = await Promise.all(docsToCreate.map(createDocument));
     console.log("Created documents:", docList);
   } catch (error) {}
 }

@@ -10,16 +10,21 @@ async function createEquipmentItem(fields) {
     colArr.push(`"${key}"`);
   });
   Object.values(fields).map((val) => {
-    valArr.push(`'${val}'`);
+    if (Array.isArray(val)) {
+      valArr.push(`ARRAY[${val}]`);
+    } else {
+      valArr.push(`'${val}'`);
+    }
   });
   const columns = colArr.join(", ");
   const values = valArr.join(", ");
   try {
+    console.log(columns, values);
     const {
       rows: [equipItem],
     } = await client.query(
       `INSERT INTO equipment(${columns}) VALUES(${values})
-        RETURNING *;`
+       RETURNING *;`
     );
     return equipItem;
   } catch (error) {}

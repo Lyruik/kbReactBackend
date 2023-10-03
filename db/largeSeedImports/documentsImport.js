@@ -15,6 +15,24 @@ const ms500Docs = [
   "Service_Bulletin_RS-232_Not_Working_on_MS-500_-_Update_August_2021.pdf",
 ];
 
+const ms250Docs = [
+  "Amp - MS-250 Network Interface Spec Sheet.pdf",
+  "Technical_Bulletin_MS-250.pdf",
+  "Technical_memo-_MS-250_vs_MS-250A.pdf",
+];
+
+const docsToCreate = [];
+const pushToDocsToCreate = (arr) => {
+  arr.map((name) => {
+    docsToCreate.push({
+      docName: name,
+    });
+  });
+};
+
+pushToDocsToCreate(ms500Docs);
+pushToDocsToCreate(ms250Docs);
+
 module.exports = {
-  ms500Docs,
+  docsToCreate,
 };

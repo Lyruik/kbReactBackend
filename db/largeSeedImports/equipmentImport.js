@@ -51,7 +51,8 @@ const addDocIdsToEquipment = (device, startIdx, stopIdx) => {
   }
 };
 
-addDocIdsToEquipment("MS-500", 1, 7);
+addDocIdsToEquipment("MS-500", 1, 15);
+addDocIdsToEquipment("MS-250", 15, 18);
 
 module.exports = {
   equipmentToCreate,
