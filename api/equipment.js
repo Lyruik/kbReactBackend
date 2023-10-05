@@ -2,6 +2,7 @@ const express = require("express");
 
 const { getEquipmentItemsByCategory } = require("../db/equipment");
 const { getCategoryIdByName } = require("../db/categories");
+const { getRelevantDocsByDeviceName } = require("../db/documents");
 const equipmentRouter = express.Router();
 
 equipmentRouter.get("/", async (req, res, next) => {
@@ -14,10 +15,9 @@ equipmentRouter.get("/", async (req, res, next) => {
 equipmentRouter.get("/:subCategory", async (req, res, next) => {
   try {
     const categoryId = await getCategoryIdByName(req.params.subCategory);
-    if (categoryId) {
-      const response = await getEquipmentItemsByCategory(categoryId.id);
-      res.send(response);
-    }
+    categoryId
+      ? res.send(await getEquipmentItemsByCategory(categoryId.id))
+      : res.send(await getRelevantDocsByDeviceName(req.params.subCategory));
   } catch (error) {}
 });
 

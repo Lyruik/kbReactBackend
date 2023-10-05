@@ -19,7 +19,6 @@ async function createEquipmentItem(fields) {
   const columns = colArr.join(", ");
   const values = valArr.join(", ");
   try {
-    console.log(columns, values);
     const {
       rows: [equipItem],
     } = await client.query(
