@@ -1,4 +1,43 @@
 const {
+  ms500Docs,
+  ms250Docs,
+  ms300Docs,
+  JBLDocs,
+  TOADocs,
+  CA25Docs,
+  CA50Docs,
+  CA60Docs,
+  CA70Docs,
+  GL300Docs,
+  ms320Docs,
+  ms375Docs,
+  ms400Docs,
+  ms450Docs,
+  ms600Docs,
+  ms1000Docs,
+  achieverDocs,
+  elite2Docs,
+  innovatorDocs,
+  ir2007Docs,
+  primeDocs,
+  ra101Docs,
+  sa16Docs,
+  soloSolutionDocs,
+  ultimate2000Docs,
+  ultimate2SeDocs,
+  ultimate3Docs,
+  edu360BDocs,
+  edu360CDocs,
+  edu360PDocs,
+  ptzDocs,
+  ptzBDocs,
+  ptzCDocs,
+  claudiaDocs,
+  consoleNucDocs,
+  CA30Docs,
+  ultimate2Docs,
+} = require("./documentsImport");
+const {
   camsToPush,
   headendToPush,
   micsToPush,
@@ -38,21 +77,57 @@ pushToEquipToCreate(wallplatesToPush, 6);
 pushToEquipToCreate(speakersToPush, 7);
 pushToEquipToCreate(retiredAmps, 12);
 
-const addDocIdsToEquipment = (device, startIdx, stopIdx) => {
+let docIdxStart = 1;
+const addDocIdsToEquipment = (device, stopIdx) => {
   const arr = [];
-  for (let i = startIdx; i < stopIdx; i++) {
+  for (let i = docIdxStart; i < stopIdx + docIdxStart; i++) {
     arr.push(i.toString());
   }
   for (let key of equipmentToCreate) {
     if (key.equipType === device) {
       key.relatedDocIds = arr;
-      console.log(key);
     }
   }
+  docIdxStart = docIdxStart + arr.length;
 };
 
-addDocIdsToEquipment("MS-500", 1, 15);
-addDocIdsToEquipment("MS-250", 15, 18);
+addDocIdsToEquipment("MS-500", ms500Docs.length);
+addDocIdsToEquipment("MS-250", ms250Docs.length);
+addDocIdsToEquipment("MS-300", ms300Docs.length);
+addDocIdsToEquipment("JBL-Amp", JBLDocs.length);
+addDocIdsToEquipment("TOA-Amp", TOADocs.length);
+addDocIdsToEquipment("CA-25", CA25Docs.length);
+addDocIdsToEquipment("CA-30", CA30Docs.length);
+addDocIdsToEquipment("CA-50", CA50Docs.length);
+addDocIdsToEquipment("CA-60", CA60Docs.length);
+addDocIdsToEquipment("CA-70", CA70Docs.length);
+addDocIdsToEquipment("GL-300", GL300Docs.length);
+addDocIdsToEquipment("MS-320", ms320Docs.length);
+addDocIdsToEquipment("MS-375", ms375Docs.length);
+addDocIdsToEquipment("MS-400", ms400Docs.length);
+addDocIdsToEquipment("MS-450", ms450Docs.length);
+addDocIdsToEquipment("MS-600", ms600Docs.length);
+addDocIdsToEquipment("MS-1000", ms1000Docs.length);
+addDocIdsToEquipment("Achiever", achieverDocs.length);
+addDocIdsToEquipment("Elite-II", elite2Docs.length);
+addDocIdsToEquipment("Innovator", innovatorDocs.length);
+addDocIdsToEquipment("IR-2007", ir2007Docs.length);
+addDocIdsToEquipment("Prime", primeDocs.length);
+addDocIdsToEquipment("RA-101", ra101Docs.length);
+addDocIdsToEquipment("SA-16", sa16Docs.length);
+addDocIdsToEquipment("Solo-Solution", soloSolutionDocs.length);
+addDocIdsToEquipment("Ultimate-2000", ultimate2000Docs.length);
+addDocIdsToEquipment("Ultimate-II", ultimate2Docs.length);
+addDocIdsToEquipment("Ultimate-II-SE", ultimate2SeDocs.length);
+addDocIdsToEquipment("Ultimate-III", ultimate3Docs.length);
+addDocIdsToEquipment("EduCam-360-B", edu360BDocs.length);
+addDocIdsToEquipment("EduCam-360-C", edu360CDocs.length);
+addDocIdsToEquipment("EduCam-360-P", edu360PDocs.length);
+addDocIdsToEquipment("EduCam-PTZ", ptzDocs.length);
+addDocIdsToEquipment("EduCam-PTZ-B", ptzBDocs.length);
+addDocIdsToEquipment("EduCam-PTZ-C", ptzCDocs.length);
+addDocIdsToEquipment("Claudia", claudiaDocs.length);
+addDocIdsToEquipment("Console-NUC", consoleNucDocs.length);
 
 module.exports = {
   equipmentToCreate,

@@ -21,11 +21,12 @@ async function getRelevantDocsByDeviceName(deviceName) {
         `,
       [deviceName]
     );
-    for (let key in docs) {
-      JSON.parse(docs[key]);
+    console.log(docs[0].docs);
+    const owo = [];
+    for (let key of docs[0].docs) {
+      owo.push(JSON.parse(key));
     }
-    console.log(docs);
-    return docs;
+    return owo;
   } catch (error) {}
 }
 
