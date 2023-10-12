@@ -1,15 +1,20 @@
 const client = require("./client");
 
-async function createDocument(name) {
+async function createDocument(fields) {
+  const setString = Object.keys(fields)
+    .map((key, index) => `"${key}"=$${index + 1}`)
+    .join(", ");
+  console.log(
+    `INSERT INTO documents(${setString})
+       RETURNING *;`,
+    Object.values(fields)
+  );
   try {
-    const response = await client.query(
-      `
-            INSERT INTO documents("docName") VALUES($1)
-            RETURNING *;
-        `,
-      [name]
-    );
-    return response.rows;
+    const {
+      rows: [docItem],
+    } = await client.query(Object.values(fields));
+    console.log("AHHHHHHHHHHHHHHHHHHHHHHHHHH");
+    return docItem;
   } catch (error) {}
 }
 

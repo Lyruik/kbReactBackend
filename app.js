@@ -12,6 +12,6 @@ server.use(cors());
 server.use("/api", apiRouter);
 client.connect();
 
-server.listen(PORT, () => {
+server.listen(PORT, "10.0.2.6", () => {
   console.log("The server is up on port", PORT);
 });

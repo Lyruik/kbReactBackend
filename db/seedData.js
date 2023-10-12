@@ -34,7 +34,8 @@ async function createTables() {
             );
             CREATE TABLE documents(
               id SERIAL PRIMARY KEY,
-              "docName" TEXT NOT NULL
+              "docName" TEXT NOT NULL,
+              "pageCategory" VARCHAR(255) DEFAULT 'Equipment'
             );
             CREATE TABLE equipment(
                 id SERIAL PRIMARY KEY,
@@ -73,7 +74,7 @@ async function createCategories() {
     const categories = await Promise.all(
       categoriesToCreate.map(createCategory)
     );
-    console.log("Categories created:", categories);
+    //console.log("Categories created:", categories);
   } catch (error) {}
 }
 
@@ -81,7 +82,7 @@ async function createInitImages() {
   console.log("Created Images");
   try {
     const imagesList = await Promise.all(imagesToCreate.map(createImage));
-    console.log("Created images:", imagesList);
+    //console.log("Created images:", imagesList);
   } catch (error) {}
 }
 
@@ -89,7 +90,7 @@ async function createInitDocuments() {
   console.log("Create initial Documents");
   try {
     const docList = await Promise.all(docsToCreate.map(createDocument));
-    console.log("Created documents:", docList);
+    //console.log("Created documents:", docList);
   } catch (error) {}
 }
 
@@ -99,7 +100,7 @@ async function createInitEquipment() {
     const equipmentList = await Promise.all(
       equipmentToCreate.map(createEquipmentItem)
     );
-    console.log("Created equipment:", equipmentList);
+    //console.log("Created equipment:", equipmentList);
   } catch (error) {}
 }
 

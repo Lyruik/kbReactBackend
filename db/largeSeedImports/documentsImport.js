@@ -2,6 +2,7 @@ const JBLDocs = [
   "AM-1001_EPIC_Common_Zone_Amplifier_2_X_80W_70V,_1U_HALF-RACK_OM_.pdf",
   "AM-1011_EPIC_Common_Zone_Amplifier_2_X_120W_70V,_1U_HALF-RACK_OM.pdf",
   "AM-1012_AM-1013_EPIC_Common_Zone_Amplifier_1_X_300W_70V,_2U_OM.pdf",
+  "Service_Bulletin_JBL_Control_1_Speakers_4_Ohms_series_parallel.pdf",
 ];
 
 const TOADocs = [
@@ -171,22 +172,119 @@ const kioskDocs = [
   "Service_Bulletin_Kiosk_resets_after_reboot__-_Internal_use_only.pdf",
 ];
 
-const mhh09Docs = [];
+const mhh09Docs = [
+  "IR Handheld Student Microphone SS DC-40259.06.pdf",
+  "MHH-09_checklist_and_troubleshooting_(1).docx",
+];
 
-const mic360Docs = [];
+const mic360Docs = [
+  "Mic360 and XD Mic Quick Start Guide v2 Print.pdf",
+  "Service_Bulletin_Mic360_Mic_element_pushed_in.pdf",
+  "Service_Bulletin_Mic360_won't_power_on_or_stay_on_v2.pdf",
+  "XD-1401_Mic360_Throwable_Microphone_Ball_(Requires_ST-XD-9025)_FSS_DC-40645.04.pdf",
+];
 
-const mtd09Docs = [];
+const mtd09Docs = [
+  "MTD-09_checklist_and_troubleshooting_(1).pdf",
+  "Teacher-Teardrop-Microphone-Spec-Print-12516.05.pdf",
+];
 
-const shh14Docs = [];
+const shh14Docs = [
+  "Service_Bulletin_Panasonic_HH_battery_contact_-_V-internal_use_only.pdf",
+  "XD-0701XD Teacher Pendant Microphone QSG DC-40545.02 .pdf",
+  "XD-0801 Student Microphone SS DC-40441.06.pdf",
+];
 
-const std14Docs = [];
+const std14Docs = [
+  "XD-0701 XD Teacher Microphone SS DC-40440.04.pdf",
+  "XD-0701XD Teacher Pendant Microphone QSG DC-40545.02 .pdf",
+];
+
+const beamDocs = [
+  "AC-3007- BEAM Pro Wall Mount Bracket SS DC-40733.01.pdf",
+  "BEAM, XD-1301, SS DC-40856.03.pdf",
+  "XD-1301 BEAM (Requires Mount and Power Supply) FSS DC- 40858.03.pdf",
+  "XD-1301 BEAM QSG DC-40884.01.pdf",
+];
+
+const beamProDocs = [
+  "AC-3008 BEAM Pro Portable Mount QSG DC-40748.01.pdf",
+  "AC-3008 Portable Mount for BEAM-Pro SS DC-40733.01.pdf",
+  "AC-3076 BEAM AC-3006 BEAM Pro Cart Mount QSG DC-40940.01.pdf",
+  "AC-3076 BEAM and AC-3006 BEAM Pro Cart Mount Bracket SS.pdf",
+  "Service_Bulletin_BEAM_Page_Mute_-internal_use_only_v2_public.pdf",
+  "Service_Bulletin_BEAM_Table_Stand_Mounting_Screw_&_Rear_Leg_Bevel.pdf",
+  "XD-1212 BEAM Pro QSG DC-40716.02.pdf",
+  "XD-1212 BEAM-Pro (Requires Mount) FSS DC-40706.05.pdf",
+  "XD-1212 BEAM-Pro (Requires Mount) SS DC-40703.02.pdf",
+];
+
+const cs12Docs = [
+  "CA-70 Wiring Diagram 4 Speaker.jpg",
+  "CA-70 Wiring Diagram 6 Speaker.jpg",
+  "CA-70 Wiring Diagram 8 Speaker.jpg",
+];
+
+const fs21Docs = [
+  "SP-0210 2X2 Classroom Speaker FS-21 IG.pdf",
+  "SP-0210 Classroom Speaker, Ceiling, 2x2 Tile Replacement, Plenum Rated SS DC-40882.01.pdf",
+];
+
+const fs22Docs = [
+  "SP- 0211 Classroom Speaker, Ceiling, 1x2 Tile Replacement, Plenum Rated SS  DC-40954.01 .pdf",
+];
+
+const ws09Docs = ["SP-0100 Classroom Speaker, Wall SS DC-40492.01.pdf"];
+
+const xdSoloDocs = [
+  "PA-0016 Speaker Stand for XD Solo SS .pdf",
+  "Service_Bulletin_XDSolo_Bluetooth_MP3_Production_change_-_V-internal_use_only (1).pdf",
+  "Service_Bulletin_XDSolo_Bluetooth_MP3_Production_change_-_V-internal_use_only.pdf",
+  "XD-1100 XDSolo QSG DC-40615.03.pdf",
+  "XD-1100 XDSolo SS DC-40614.08 (2).pdf",
+  "XDSolo Flyer DC-40638.03.pdf",
+];
+
+const aeStrobeDocs = [
+  "AC-2083_Indoor_Flush_Mount_Strobe,_2-Gang_Wall_Plate_Style,_Green_SS_DC-40745.02.pdf",
+  "LED_Strobe_installation_for_MS-500_n_300_on_EPIC_1.8.1.0_DC-40798.03.pdf",
+];
+
+const algoStrobeDocs = [
+  "AC-2102_IndoorOutdoor_Multi-Color_Strobe_(Requires_PoE)_SS_.pdf",
+  "Algo_Strobe_Setup_with_EPIC_v3.pdf",
+];
+
+const itcDocs = [
+  "Complete ITC Programming manual April 2021 (Internal Only) (2).pdf",
+  "EPIC_System_-_ITC_Call_and_Emergency_Buttons_Setup.pdf",
+  "USB Driver and ITC Command File Instructions.pdf",
+];
+
+const wba60xDocs = [
+  "NE-0015 WBA-601 Ambient Mic With Access Panel SS DC-40984.01 .pdf",
+  "NE-0016 WBA-602 Call Button, Emergency Button, Ambient Mic With Access Panel SS DC-40985.01 .pdf",
+  "NE-0017 WBA-604 Call Button, Ambient Mic With Access Panel SS DC-40986.01 .pdf",
+  "NE-0018 WBA-605 Emergency Button, Ambient Mic With Access Panel SS DC-40987.01 .pdf",
+];
+
+const wpa50xDocs = ["WPA-501, 502, 504, 505 combined spec sheet.pdf"];
+
+const wpa70xDocs = [
+  "WP-0001_Wall_Plate,_WPA-701,Ambient_Mic_with_Decora_Plate_SS_DC-40972.01.pdf",
+  "Wp-0002_Wall_Plate,_WPA-702,_Call_Button,_Emergency_Button,_Ambient_Mic_with_Decora_Plate_SS_DC-40973.01.pdf",
+  "WP-0004_Wall_Plate,_WPA-704,_Call_Button,_Ambient_Mic_with_Decora_Plate_SS_DC-40974.01.pdf",
+  "WP-0005_Wall_Plate,_WPA-705,_Emergency_Button,_Ambient_Mic_with_Decora_Plate_SS_DC-40975.01.pdf",
+];
+
+const epicTestDocs = ["EPIC System - Adding SMS or Email.pdf"];
 
 const docsToCreate = [];
-const pushToDocsToCreate = (arr, deviceId) => {
+const pushToDocsToCreate = (arr, category) => {
   arr.map((name) => {
     docsToCreate.push({
       docName: name,
-      equipment_id: deviceId,
+      categoryId: category ? category : "",
     });
   });
   console.log(Object.keys({ arr })[0]);
@@ -229,6 +327,27 @@ pushToDocsToCreate(ptzBDocs);
 pushToDocsToCreate(ptzCDocs);
 pushToDocsToCreate(claudiaDocs);
 pushToDocsToCreate(consoleNucDocs);
+pushToDocsToCreate(infoViewDocs);
+pushToDocsToCreate(kioskDocs);
+pushToDocsToCreate(mhh09Docs);
+pushToDocsToCreate(mic360Docs);
+pushToDocsToCreate(mtd09Docs);
+pushToDocsToCreate(shh14Docs);
+pushToDocsToCreate(std14Docs);
+pushToDocsToCreate(beamDocs);
+pushToDocsToCreate(beamProDocs);
+pushToDocsToCreate(cs12Docs);
+pushToDocsToCreate(fs21Docs);
+pushToDocsToCreate(fs22Docs);
+pushToDocsToCreate(ws09Docs);
+pushToDocsToCreate(xdSoloDocs);
+pushToDocsToCreate(aeStrobeDocs);
+pushToDocsToCreate(algoStrobeDocs);
+pushToDocsToCreate(itcDocs);
+pushToDocsToCreate(wba60xDocs);
+pushToDocsToCreate(wpa50xDocs);
+pushToDocsToCreate(wpa70xDocs);
+pushToDocsToCreate(epicTestDocs, "EPIC-Docs");
 
 module.exports = {
   docsToCreate,
@@ -269,4 +388,24 @@ module.exports = {
   ptzCDocs,
   claudiaDocs,
   consoleNucDocs,
+  infoViewDocs,
+  kioskDocs,
+  mhh09Docs,
+  mic360Docs,
+  mtd09Docs,
+  shh14Docs,
+  std14Docs,
+  beamDocs,
+  beamProDocs,
+  cs12Docs,
+  fs21Docs,
+  fs22Docs,
+  ws09Docs,
+  xdSoloDocs,
+  aeStrobeDocs,
+  algoStrobeDocs,
+  itcDocs,
+  wba60xDocs,
+  wpa50xDocs,
+  wpa70xDocs,
 };

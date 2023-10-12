@@ -36,6 +36,26 @@ const {
   consoleNucDocs,
   CA30Docs,
   ultimate2Docs,
+  infoViewDocs,
+  kioskDocs,
+  mhh09Docs,
+  mic360Docs,
+  mtd09Docs,
+  shh14Docs,
+  std14Docs,
+  beamDocs,
+  beamProDocs,
+  cs12Docs,
+  fs21Docs,
+  fs22Docs,
+  ws09Docs,
+  xdSoloDocs,
+  aeStrobeDocs,
+  algoStrobeDocs,
+  itcDocs,
+  wba60xDocs,
+  wpa50xDocs,
+  wpa70xDocs,
 } = require("./documentsImport");
 const {
   camsToPush,
@@ -128,6 +148,26 @@ addDocIdsToEquipment("EduCam-PTZ-B", ptzBDocs.length);
 addDocIdsToEquipment("EduCam-PTZ-C", ptzCDocs.length);
 addDocIdsToEquipment("Claudia", claudiaDocs.length);
 addDocIdsToEquipment("Console-NUC", consoleNucDocs.length);
+addDocIdsToEquipment("InfoView", infoViewDocs.length);
+addDocIdsToEquipment("Kiosk", kioskDocs.length);
+addDocIdsToEquipment("MHH-09", mhh09Docs.length);
+addDocIdsToEquipment("MIC-360", mic360Docs.length);
+addDocIdsToEquipment("MTD-09", mtd09Docs.length);
+addDocIdsToEquipment("SHH-14", shh14Docs.length);
+addDocIdsToEquipment("STD-14", std14Docs.length);
+addDocIdsToEquipment("BEAM", beamDocs.length);
+addDocIdsToEquipment("BEAM-PRO", beamProDocs.length);
+addDocIdsToEquipment("CS-12", cs12Docs.length);
+addDocIdsToEquipment("FS-21", fs21Docs.length);
+addDocIdsToEquipment("FS-22", fs22Docs.length);
+addDocIdsToEquipment("WS-09", ws09Docs.length);
+addDocIdsToEquipment("XD-SOLO", xdSoloDocs.length);
+addDocIdsToEquipment("AE-Strobe", aeStrobeDocs.length);
+addDocIdsToEquipment("Algo-Strobe", algoStrobeDocs.length);
+addDocIdsToEquipment("ITC", itcDocs.length);
+addDocIdsToEquipment("WBA-60x", wba60xDocs.length);
+addDocIdsToEquipment("WPA-50x", wpa50xDocs.length);
+addDocIdsToEquipment("WPA-70x", wpa70xDocs.length);
 
 module.exports = {
   equipmentToCreate,
