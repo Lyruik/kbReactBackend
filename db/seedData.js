@@ -35,7 +35,7 @@ async function createTables() {
             CREATE TABLE documents(
               id SERIAL PRIMARY KEY,
               "docName" TEXT NOT NULL,
-              "pageCategory" VARCHAR(255) DEFAULT 'Equipment'
+              "pageCategory" VARCHAR(255) DEFAULT 'Unassigned'
             );
             CREATE TABLE equipment(
                 id SERIAL PRIMARY KEY,

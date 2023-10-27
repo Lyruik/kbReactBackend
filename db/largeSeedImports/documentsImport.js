@@ -386,12 +386,45 @@ const epicTestDocs = [
   "Virtualization Requirements - March 2022 Final.pdf",
 ];
 
+const troubleshootingDocs = [
+  "Acoustic_Feedback.pdf",
+  "Basic_Troubleshooting_for_FM_Systems.pdf",
+  "Basic_Troubleshooting_for_IR_Systems.pdf",
+  "Cutting_in_and_out_or_intermittent_sound.pdf",
+  "Troubleshooting_Guide-_No_Audio.docx",
+  "Troubleshooting_Guide-_Other_Unwanted_Noise.docx",
+  "Troubleshooting_Guide-_Static.docx",
+];
+
+const scriptDocs = [
+  "1.9.X.X-TrunkAuthIncomingCalls.tar.gz.dat",
+  "Add-Room-in-front-of-roomName.tar.gz.dat",
+  "Add_Disk_VP.tar.gz.dat",
+  "DisableVPL.tar.gz.dat",
+  "ExtensionFixes-UnableToCreateChannelTypeSIP-1.9.0.X.tar.gz.dat",
+  "FixAudioUpload2.0.tar.gz (1).dat",
+  "FixBlankSystemSettings-1.9.0.X.tar.gz.dat",
+  "FixBlankVIEWpathRecordingManager.tar.gz.dat",
+  "FixDefaultAsteriskFiles-1.9andAbove.tar.gz.dat",
+  "FixTooManyFilesOpenAsterisk.tar.gz.dat",
+  "FixVIEWpathBlankFilesAfterUpgrade.tar.gz.dat",
+  "Instructions.txt",
+  "MS300B-500A-FW-1.1.0.tar.gz.dat",
+  "MS300b-500aFW1.0.7.tar.gz.dat",
+  "ModifyBackupTableLength.tar.gz.dat",
+  "ModifyPeriods-FixCopyBellScheduleFailing.tar.gz.dat",
+  "ResetAETechPassword-1.8.1.X.tar.gz.dat",
+  "ResetAETechPassword-1.9.0.X.tar.gz.dat",
+  "VIEWpathMemoryLeakClearLargeRecordings.tar.gz.dat",
+  "VIEWpath_Update_Summer_2022.tar.gz.dat",
+];
+
 const docsToCreate = [];
 const pushToDocsToCreate = (arr, category) => {
   arr.map((name) => {
     docsToCreate.push({
       docName: name,
-      pageCategory: category ? category : "",
+      pageCategory: category ? category : "equipment",
     });
   });
   console.log(Object.keys({ arr })[0]);
@@ -454,7 +487,9 @@ pushToDocsToCreate(itcDocs);
 pushToDocsToCreate(wba60xDocs);
 pushToDocsToCreate(wpa50xDocs);
 pushToDocsToCreate(wpa70xDocs);
-pushToDocsToCreate(epicTestDocs, "EPIC-Docs");
+pushToDocsToCreate(epicTestDocs, "epicDocs");
+pushToDocsToCreate(troubleshootingDocs, "troubleshootingDocs");
+pushToDocsToCreate(scriptDocs, "techScripts");
 
 module.exports = {
   docsToCreate,
