@@ -16,7 +16,6 @@ async function createDocument(fields) {
       RETURNING *;`,
       Object.values(fields)
     );
-
     return docItem;
   } catch (error) {}
 }
