@@ -25,7 +25,6 @@ testingRouter.post(
   "/uploads/databaseFile/:fileName",
   quickMiddleware,
   async (req, res, next) => {
-    console.log("ooga");
     const response = await uploadFile(req.params.fileName);
     res.send(response);
   }
