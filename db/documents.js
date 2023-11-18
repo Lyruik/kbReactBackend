@@ -42,8 +42,23 @@ async function getDocsByPageCategory(str) {
   } catch (error) {}
 }
 
+async function getDocsBySearchTerm(str) {
+  console.log(str, "sir you are not right");
+  try {
+    const { rows: docs } = await client.query(
+      `
+      SELECT * FROM documents WHERE "docName" LIKE $1;
+    `,
+      [str]
+    );
+    console.log(docs, "query");
+    return docs;
+  } catch (error) {}
+}
+
 module.exports = {
   createDocument,
   getRelevantDocsByDeviceName,
   getDocsByPageCategory,
+  getDocsBySearchTerm,
 };
