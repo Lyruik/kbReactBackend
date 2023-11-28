@@ -30,4 +30,11 @@ testingRouter.post(
   }
 );
 
+testingRouter.get("/ipspeaker/:fileName", async (req, res, next) => {
+  console.log(req.params);
+  res.download(
+    "../../Code-related/TechSupportKBReact/public/ipspeaker/ips21_1_6_0105.bin"
+  );
+});
+
 module.exports = testingRouter;

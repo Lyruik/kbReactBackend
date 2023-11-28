@@ -42,16 +42,16 @@ async function getDocsByPageCategory(str) {
   } catch (error) {}
 }
 
-async function getDocsBySearchTerm(str) {
-  console.log(str, "sir you are not right");
+async function getDocsBySearchTerm(arr) {
+  console.log(arr, "sir you are not right");
   try {
     const { rows: docs } = await client.query(
       `
-      SELECT * FROM documents WHERE "docName" LIKE $1;
+      SELECT * FROM documents WHERE "docName" iLIKE $1 or "docName" iLIKE $2;
     `,
-      [str]
+      arr
     );
-    console.log(docs, "query");
+    console.log(docs.length, "query");
     return docs;
   } catch (error) {}
 }
