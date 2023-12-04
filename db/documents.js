@@ -51,7 +51,6 @@ async function getDocsBySearchTerm(arr) {
     `,
       arr
     );
-    console.log(docs.length, "query");
     return docs;
   } catch (error) {}
 }
