@@ -26,6 +26,7 @@ searchRouter.get("/", async (req, res, next) => {
     We'll start on the first. We will want to try and split it based on numbers and hyphens/characters
     */
     let splitty = str.split(/([-_\s])/);
+    console.log(splitty, str);
     /* 
     I can get it to split any hyphens or underscores, but this doesn't split off numbers. I still want to be able to take ms300 and get ms_300. I am starting
     to think there is a much better way to get this, but struggling to find answers. I do have an idea of what would WORK, and for now we'll have to make due with it
