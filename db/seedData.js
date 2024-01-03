@@ -3,12 +3,10 @@ const client = require("./client");
 const { createDocument } = require("./documents");
 const { createEquipmentItem } = require("./equipment");
 const { createImage } = require("./images");
-const {
-  ms500Docs,
-  docsToCreate,
-} = require("./largeSeedImports/documentsImport");
+const { docsToCreate } = require("./largeSeedImports/documentsImport");
 const { equipmentToCreate } = require("./largeSeedImports/equipmentImport");
 const { imagesToCreate } = require("./largeSeedImports/imageImport");
+const { createUser, createRole } = require("./users");
 
 async function dropTables() {
   console.log("Dropping Tables");
@@ -17,6 +15,8 @@ async function dropTables() {
         DROP TABLE IF EXISTS documents;
         DROP TABLE IF EXISTS images;
         DROP TABLE IF EXISTS categories;
+        DROP TABLE IF EXISTS users;
+        DROP TABLE IF EXISTS roles;
     `);
 }
 
@@ -43,6 +43,17 @@ async function createTables() {
                 "imageId" INTEGER REFERENCES images(id) NOT NULL DEFAULT 1,
                 "categoryId" INTEGER REFERENCES categories(id) NOT NULL DEFAULT 8,
                 "relatedDocIds" INTEGER[]
+            );
+            CREATE TABLE roles(
+                id SERIAL PRIMARY KEY,
+                role_name VARCHAR(255) NOT NULL,
+                permissions TEXT
+            );
+            CREATE TABLE users(
+                id SERIAL PRIMARY KEY,
+                username VARCHAR(255) NOT NULL UNIQUE,
+                password TEXT NOT NULL,
+                role_id INTEGER REFERENCES roles(id) NOT NULL DEFAULT 2
             );
         `);
     console.log("Successfully created tables");
@@ -104,6 +115,38 @@ async function createInitEquipment() {
   } catch (error) {}
 }
 
+async function createInitRoles() {
+  console.log(`Creating initial roles`);
+  try {
+    const initRoles = [
+      {
+        roleName: "admin",
+        permissions: "everything",
+      },
+      {
+        roleName: "user",
+        permissions: "viewing",
+      },
+    ];
+    const roleList = await Promise.all(initRoles.map(createRole));
+    console.log(`Created roles: ${roleList}`);
+  } catch (error) {}
+}
+
+async function createInitUsers() {
+  console.log("Creating initial users");
+  try {
+    const defaultUsers = [
+      {
+        username: "admin",
+        password: "hipsdontlie",
+      },
+    ];
+    const userList = await Promise.all(defaultUsers.map(createUser));
+    console.log(`Created users: ${userList}`);
+  } catch (error) {}
+}
+
 async function rebuildDB() {
   try {
     client.connect();
@@ -113,6 +156,8 @@ async function rebuildDB() {
     await createInitImages();
     await createInitDocuments();
     await createInitEquipment();
+    await createInitRoles();
+    await createInitUsers();
     console.log("We've reached the end probably");
   } catch (error) {}
 }

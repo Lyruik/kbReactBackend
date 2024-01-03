@@ -427,7 +427,6 @@ const pushToDocsToCreate = (arr, category) => {
       pageCategory: category ? category : "equipment",
     });
   });
-  console.log(Object.keys({ arr })[0]);
 };
 
 pushToDocsToCreate(ms500Docs);

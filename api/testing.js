@@ -4,13 +4,12 @@ const { quickMiddleware } = require("./utils");
 const client = require("../db/client");
 const { uploadFile } = require("../db/testing");
 const testingRouter = express.Router();
-const frontEndPath = `../TechSupportKBReact/public`;
+const frontEndPath = `../kbReact/public`;
 
 testingRouter.post(
   "/uploads/:fileName",
   quickMiddleware,
   async (req, res, next) => {
-    console.log("ooga");
     req.on("data", (chunk) => {
       fs.appendFileSync(
         `${frontEndPath}/docs/epicDocs/${req.params.fileName}`,

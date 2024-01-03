@@ -13,6 +13,9 @@ apiRouter.use("/testing", testingRouter);
 const searchRouter = require("./search");
 apiRouter.use("/search", searchRouter);
 
+const loginRouter = require("./login");
+apiRouter.use("/login", loginRouter);
+
 apiRouter.use((req, res, next) => {
   res.status(404).send({ message: "Sorry can't find that" });
 });
