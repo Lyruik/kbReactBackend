@@ -4,6 +4,10 @@ const { quickMiddleware } = require("./utils");
 const client = require("../db/client");
 const { uploadFile } = require("../db/testing");
 const testingRouter = express.Router();
+<<<<<<< HEAD
+=======
+// this frontEndPath might need to change on other systems too? strangely it was working previously but I am pretty sure I've renamed directories on all platforms
+>>>>>>> 714c8d92ecba818ff91de53ed160ca62a48489d2
 const frontEndPath = `../kbReact/public`;
 
 testingRouter.post(
